@@ -666,54 +666,59 @@ class AppController extends ChangeNotifier {
   }
 
   Future<void> applyPreset(String preset) async {
-    switch (preset) {
+    final key = preset == 'darkAcademia' ? 'dark_academia' : preset;
+
+    // Cada estética configura una identidad completa, no solo el color.
+    // Así, tocar una tarjeta de la galería cambia realmente la personalidad
+    // de la app y también mantiene el comportamiento responsive.
+    switch (key) {
       case 'cozy':
-        palette = 'terracotta'; style = 'cozy'; fontStyle = 'rounded'; mood = 'warm'; background = 'paper'; cardStyle = 'cream'; coverShape = 'rounded'; wrappedTemplate = 'scrapbook'; bookishScene = 'cozy'; bookishDisplay = 'mix';
+        palette = 'terracotta'; style = key; fontStyle = 'rounded'; mood = 'warm'; background = 'paper'; cardStyle = 'cream'; coverShape = 'rounded'; wrappedTemplate = 'scrapbook'; wrappedPattern = 'doodles'; bookishScene = 'cozy'; bookishShelf = 'wood'; bookishDecor = 'plants'; bookishDisplay = 'mix'; bookishRatio = 'portrait'; navigationStyle = 'pill'; statsStyle = 'cards'; calendarStyle = 'trail'; density = 'comfortable'; spacing = 'airy'; cornerRadius = 26; accentIntensity = .74; backgroundOpacity = .13; titleScale = 1.03; uiScale = 1.00; contentWidth = 'standard'; darkMode = false; decorations = true; doodles = true;
         break;
-      case 'darkAcademia':
-        palette = 'plum'; style = 'dark_academia'; fontStyle = 'serif'; mood = 'moody'; background = 'mist'; cardStyle = 'ink'; coverShape = 'square'; wrappedTemplate = 'editorial'; bookishScene = 'gothic'; bookishDisplay = 'spines';
-        break;
-      case 'pastel':
-        palette = 'lavender'; style = 'romance'; fontStyle = 'rounded'; mood = 'dreamy'; background = 'lavender'; cardStyle = 'glass'; coverShape = 'soft'; wrappedTemplate = 'dreamy'; bookishScene = 'pastel'; bookishDisplay = 'covers';
-        break;
-      case 'minimal':
-        palette = 'midnight'; style = 'minimal'; fontStyle = 'system'; mood = 'calm'; background = 'mist'; cardStyle = 'ink'; coverShape = 'square'; wrappedTemplate = 'minimal'; bookishScene = 'minimal'; bookishDisplay = 'spines';
+      case 'romance':
+        palette = 'rose'; style = key; fontStyle = 'rounded'; mood = 'dreamy'; background = 'rose'; cardStyle = 'glass'; coverShape = 'soft'; wrappedTemplate = 'dreamy'; wrappedPattern = 'botanical'; bookishScene = 'pastel'; bookishShelf = 'rainbow'; bookishDecor = 'flowers'; bookishDisplay = 'covers'; bookishRatio = 'portrait'; navigationStyle = 'pill'; statsStyle = 'cards'; calendarStyle = 'botanical'; density = 'airy'; spacing = 'airy'; cornerRadius = 30; accentIntensity = .88; backgroundOpacity = .18; titleScale = 1.06; uiScale = 1.01; contentWidth = 'standard'; darkMode = false; decorations = true; doodles = true;
         break;
       case 'fantasy':
-        palette = 'iris'; style = 'fantasy'; fontStyle = 'serif'; mood = 'mystic'; background = 'lavender'; cardStyle = 'glass'; coverShape = 'soft'; wrappedTemplate = 'dreamy'; bookishScene = 'pastel'; bookishDisplay = 'covers';
+        palette = 'iris'; style = key; fontStyle = 'serif'; mood = 'mystic'; background = 'lavender'; cardStyle = 'glass'; coverShape = 'soft'; wrappedTemplate = 'dreamy'; wrappedPattern = 'stars'; bookishScene = 'pastel'; bookishShelf = 'floating'; bookishDecor = 'moon'; bookishDisplay = 'mix'; bookishRatio = 'portrait'; navigationStyle = 'airy'; statsStyle = 'editorial'; calendarStyle = 'botanical'; density = 'airy'; spacing = 'roomy'; cornerRadius = 28; accentIntensity = .96; backgroundOpacity = .20; titleScale = 1.10; uiScale = 1.02; contentWidth = 'wide'; darkMode = false; decorations = true; doodles = true;
         break;
       case 'gothic':
-        palette = 'plum'; style = 'gothic'; fontStyle = 'serif'; mood = 'moody'; background = 'mist'; cardStyle = 'ink'; coverShape = 'square'; wrappedTemplate = 'poster'; bookishScene = 'gothic'; bookishDisplay = 'spines'; darkMode = true;
+        palette = 'plum'; style = key; fontStyle = 'serif'; mood = 'moody'; background = 'mist'; cardStyle = 'ink'; coverShape = 'square'; wrappedTemplate = 'poster'; wrappedPattern = 'stars'; bookishScene = 'gothic'; bookishShelf = 'wood'; bookishDecor = 'moon'; bookishDisplay = 'spines'; bookishRatio = 'story'; navigationStyle = 'compact'; statsStyle = 'editorial'; calendarStyle = 'bold'; density = 'compact'; spacing = 'comfortable'; cornerRadius = 14; accentIntensity = .92; backgroundOpacity = .18; titleScale = 1.04; uiScale = .98; contentWidth = 'standard'; darkMode = true; decorations = true; doodles = true;
+        break;
+      case 'dark_academia':
+        palette = 'forest'; style = key; fontStyle = 'serif'; mood = 'moody'; background = 'parchment'; cardStyle = 'cream'; coverShape = 'square'; wrappedTemplate = 'editorial'; wrappedPattern = 'paper'; bookishScene = 'gothic'; bookishShelf = 'wood'; bookishDecor = 'plants'; bookishDisplay = 'spines'; bookishRatio = 'portrait'; navigationStyle = 'bar'; statsStyle = 'editorial'; calendarStyle = 'minimal'; density = 'comfortable'; spacing = 'airy'; cornerRadius = 12; accentIntensity = .70; backgroundOpacity = .20; titleScale = 1.01; uiScale = 1.00; contentWidth = 'wide'; darkMode = false; decorations = true; doodles = true;
         break;
       case 'cottagecore':
-        palette = 'moss'; style = 'cottagecore'; fontStyle = 'serif'; mood = 'calm'; background = 'sage'; cardStyle = 'cream'; coverShape = 'soft'; wrappedTemplate = 'scrapbook'; bookishScene = 'cottage'; bookishDisplay = 'covers';
+        palette = 'moss'; style = key; fontStyle = 'serif'; mood = 'calm'; background = 'sage'; cardStyle = 'cream'; coverShape = 'soft'; wrappedTemplate = 'scrapbook'; wrappedPattern = 'botanical'; bookishScene = 'cottage'; bookishShelf = 'wood'; bookishDecor = 'flowers'; bookishDisplay = 'covers'; bookishRatio = 'portrait'; navigationStyle = 'airy'; statsStyle = 'cards'; calendarStyle = 'botanical'; density = 'airy'; spacing = 'roomy'; cornerRadius = 30; accentIntensity = .70; backgroundOpacity = .20; titleScale = 1.05; uiScale = 1.01; contentWidth = 'standard'; darkMode = false; decorations = true; doodles = true;
         break;
       case 'whimsigoth':
-        palette = 'berry'; style = 'whimsigoth'; fontStyle = 'rounded'; mood = 'mystic'; background = 'rose'; cardStyle = 'glass'; coverShape = 'rounded'; wrappedTemplate = 'dreamy'; bookishScene = 'gothic'; bookishDisplay = 'mix';
+        palette = 'berry'; style = key; fontStyle = 'serif'; mood = 'mystic'; background = 'rose'; cardStyle = 'glass'; coverShape = 'rounded'; wrappedTemplate = 'dreamy'; wrappedPattern = 'stars'; bookishScene = 'gothic'; bookishShelf = 'floating'; bookishDecor = 'flowers'; bookishDisplay = 'mix'; bookishRatio = 'story'; navigationStyle = 'pill'; statsStyle = 'editorial'; calendarStyle = 'trail'; density = 'airy'; spacing = 'airy'; cornerRadius = 26; accentIntensity = .92; backgroundOpacity = .21; titleScale = 1.08; uiScale = 1.00; contentWidth = 'standard'; darkMode = false; decorations = true; doodles = true;
+        break;
+      case 'minimal':
+        palette = 'midnight'; style = key; fontStyle = 'system'; mood = 'calm'; background = 'mist'; cardStyle = 'ink'; coverShape = 'square'; wrappedTemplate = 'minimal'; wrappedPattern = 'clean'; bookishScene = 'minimal'; bookishShelf = 'floating'; bookishDecor = 'minimal'; bookishDisplay = 'spines'; bookishRatio = 'square'; navigationStyle = 'compact'; statsStyle = 'minimal'; calendarStyle = 'minimal'; density = 'compact'; spacing = 'compact'; cornerRadius = 10; accentIntensity = .46; backgroundOpacity = .06; titleScale = .98; uiScale = .98; contentWidth = 'standard'; darkMode = false; decorations = false; doodles = false;
         break;
       case 'celestial':
-        palette = 'inkblue'; style = 'celestial'; fontStyle = 'serif'; mood = 'mystic'; background = 'blue'; cardStyle = 'glass'; coverShape = 'rounded'; wrappedTemplate = 'poster'; bookishScene = 'minimal'; bookishDisplay = 'mix';
+        palette = 'inkblue'; style = key; fontStyle = 'serif'; mood = 'mystic'; background = 'blue'; cardStyle = 'glass'; coverShape = 'rounded'; wrappedTemplate = 'poster'; wrappedPattern = 'stars'; bookishScene = 'minimal'; bookishShelf = 'floating'; bookishDecor = 'moon'; bookishDisplay = 'mix'; bookishRatio = 'story'; navigationStyle = 'airy'; statsStyle = 'editorial'; calendarStyle = 'bold'; density = 'airy'; spacing = 'roomy'; cornerRadius = 26; accentIntensity = .96; backgroundOpacity = .22; titleScale = 1.10; uiScale = 1.01; contentWidth = 'wide'; darkMode = false; decorations = true; doodles = true;
         break;
       case 'botanical':
-        palette = 'forest'; style = 'botanical'; fontStyle = 'serif'; mood = 'airy'; background = 'sage'; cardStyle = 'cream'; coverShape = 'soft'; wrappedTemplate = 'scrapbook'; bookishScene = 'cottage'; bookishDisplay = 'covers';
+        palette = 'forest'; style = key; fontStyle = 'serif'; mood = 'airy'; background = 'sage'; cardStyle = 'cream'; coverShape = 'soft'; wrappedTemplate = 'scrapbook'; wrappedPattern = 'botanical'; bookishScene = 'cottage'; bookishShelf = 'wood'; bookishDecor = 'plants'; bookishDisplay = 'covers'; bookishRatio = 'portrait'; navigationStyle = 'airy'; statsStyle = 'cards'; calendarStyle = 'botanical'; density = 'roomy'; spacing = 'roomy'; cornerRadius = 28; accentIntensity = .76; backgroundOpacity = .19; titleScale = 1.05; uiScale = 1.01; contentWidth = 'wide'; darkMode = false; decorations = true; doodles = true;
         break;
       case 'ocean':
-        palette = 'ocean'; style = 'ocean'; fontStyle = 'system'; mood = 'calm'; background = 'blue'; cardStyle = 'soft'; coverShape = 'rounded'; wrappedTemplate = 'minimal'; bookishScene = 'minimal'; bookishDisplay = 'mix';
+        palette = 'ocean'; style = key; fontStyle = 'system'; mood = 'calm'; background = 'blue'; cardStyle = 'soft'; coverShape = 'rounded'; wrappedTemplate = 'minimal'; wrappedPattern = 'clean'; bookishScene = 'minimal'; bookishShelf = 'floating'; bookishDecor = 'minimal'; bookishDisplay = 'mix'; bookishRatio = 'portrait'; navigationStyle = 'pill'; statsStyle = 'cards'; calendarStyle = 'trail'; density = 'airy'; spacing = 'airy'; cornerRadius = 22; accentIntensity = .72; backgroundOpacity = .17; titleScale = 1.00; uiScale = 1.00; contentWidth = 'wide'; darkMode = false; decorations = true; doodles = true;
         break;
       case 'retro':
-        palette = 'sand'; style = 'retro'; fontStyle = 'mono'; mood = 'bright'; background = 'parchment'; cardStyle = 'cream'; coverShape = 'ticket'; wrappedTemplate = 'poster'; bookishScene = 'cozy'; bookishDisplay = 'spines';
+        palette = 'sand'; style = key; fontStyle = 'mono'; mood = 'bright'; background = 'parchment'; cardStyle = 'cream'; coverShape = 'ticket'; wrappedTemplate = 'poster'; wrappedPattern = 'paper'; bookishScene = 'cozy'; bookishShelf = 'wood'; bookishDecor = 'minimal'; bookishDisplay = 'spines'; bookishRatio = 'square'; navigationStyle = 'bar'; statsStyle = 'editorial'; calendarStyle = 'bold'; density = 'comfortable'; spacing = 'airy'; cornerRadius = 8; accentIntensity = .82; backgroundOpacity = .21; titleScale = 1.00; uiScale = 1.00; contentWidth = 'standard'; darkMode = false; decorations = true; doodles = true;
         break;
       case 'noir':
-        palette = 'midnight'; style = 'noir'; fontStyle = 'condensed'; mood = 'moody'; background = 'mist'; cardStyle = 'ink'; coverShape = 'square'; wrappedTemplate = 'editorial'; bookishScene = 'minimal'; bookishDisplay = 'spines'; darkMode = true;
+        palette = 'midnight'; style = key; fontStyle = 'condensed'; mood = 'moody'; background = 'mist'; cardStyle = 'ink'; coverShape = 'square'; wrappedTemplate = 'editorial'; wrappedPattern = 'clean'; bookishScene = 'minimal'; bookishShelf = 'floating'; bookishDecor = 'minimal'; bookishDisplay = 'spines'; bookishRatio = 'portrait'; navigationStyle = 'compact'; statsStyle = 'editorial'; calendarStyle = 'minimal'; density = 'compact'; spacing = 'compact'; cornerRadius = 6; accentIntensity = .55; backgroundOpacity = .08; titleScale = .96; uiScale = .97; contentWidth = 'narrow'; darkMode = true; decorations = false; doodles = true;
         break;
       case 'sunset':
-        palette = 'coral'; style = 'sunset'; fontStyle = 'system'; mood = 'bright'; background = 'warm'; cardStyle = 'soft'; coverShape = 'rounded'; wrappedTemplate = 'scrapbook'; bookishScene = 'cozy'; bookishDisplay = 'covers'; darkMode = false;
+        palette = 'coral'; style = key; fontStyle = 'medium'; mood = 'bright'; background = 'warm'; cardStyle = 'soft'; coverShape = 'rounded'; wrappedTemplate = 'scrapbook'; wrappedPattern = 'doodles'; bookishScene = 'cozy'; bookishShelf = 'rainbow'; bookishDecor = 'flowers'; bookishDisplay = 'covers'; bookishRatio = 'portrait'; navigationStyle = 'pill'; statsStyle = 'cards'; calendarStyle = 'trail'; density = 'roomy'; spacing = 'roomy'; cornerRadius = 30; accentIntensity = .90; backgroundOpacity = .21; titleScale = 1.06; uiScale = 1.01; contentWidth = 'wide'; darkMode = false; decorations = true; doodles = true;
         break;
       case 'sakura':
-        palette = 'rose'; style = 'sakura'; fontStyle = 'rounded'; mood = 'dreamy'; background = 'rose'; cardStyle = 'glass'; coverShape = 'soft'; wrappedTemplate = 'dreamy'; bookishScene = 'pastel'; bookishDisplay = 'covers';
+        palette = 'rose'; style = key; fontStyle = 'rounded'; mood = 'dreamy'; background = 'rose'; cardStyle = 'glass'; coverShape = 'soft'; wrappedTemplate = 'dreamy'; wrappedPattern = 'botanical'; bookishScene = 'pastel'; bookishShelf = 'rainbow'; bookishDecor = 'flowers'; bookishDisplay = 'covers'; bookishRatio = 'portrait'; navigationStyle = 'pill'; statsStyle = 'cards'; calendarStyle = 'botanical'; density = 'airy'; spacing = 'roomy'; cornerRadius = 32; accentIntensity = .86; backgroundOpacity = .23; titleScale = 1.07; uiScale = 1.01; contentWidth = 'standard'; darkMode = false; decorations = true; doodles = true;
         break;
       case 'parchment':
-        palette = 'butter'; style = 'parchment'; fontStyle = 'serif'; mood = 'warm'; background = 'parchment'; cardStyle = 'cream'; coverShape = 'ticket'; wrappedTemplate = 'editorial'; bookishScene = 'cozy'; bookishDisplay = 'spines';
+        palette = 'butter'; style = key; fontStyle = 'serif'; mood = 'warm'; background = 'parchment'; cardStyle = 'cream'; coverShape = 'ticket'; wrappedTemplate = 'editorial'; wrappedPattern = 'paper'; bookishScene = 'cozy'; bookishShelf = 'wood'; bookishDecor = 'plants'; bookishDisplay = 'spines'; bookishRatio = 'portrait'; navigationStyle = 'bar'; statsStyle = 'editorial'; calendarStyle = 'minimal'; density = 'comfortable'; spacing = 'airy'; cornerRadius = 10; accentIntensity = .64; backgroundOpacity = .23; titleScale = 1.02; uiScale = 1.00; contentWidth = 'wide'; darkMode = false; decorations = true; doodles = true;
         break;
     }
     await save();
@@ -1149,38 +1154,99 @@ class _AppDoodleBackground extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     if (!controller.doodles) return;
     final paint = Paint()
-      ..color = controller.seedColor.withValues(alpha: controller.backgroundOpacity)
+      ..color = controller.seedColor.withValues(alpha: controller.backgroundOpacity.clamp(.05, .24))
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 1.1;
-    final pattern = controller.style == 'minimal' ? 28 : controller.style == 'gothic' ? 16 : 20;
+      ..strokeWidth = controller.style == 'minimal' ? .9 : 1.15;
+    final pattern = switch (controller.style) {
+      'minimal' => 30.0,
+      'gothic' || 'whimsigoth' || 'noir' => 17.0,
+      'celestial' || 'fantasy' => 23.0,
+      _ => 20.0,
+    };
+
     for (var i = 0; i < 42; i++) {
       final x = 14 + (i * 83.0) % math.max(40, size.width - 28);
       final y = 20 + (i * 57.0) % math.max(40, size.height - 40);
-      if (controller.style == 'celestial') {
-        canvas.drawCircle(Offset(x, y), 4 + i % 4, paint);
-        canvas.drawLine(Offset(x - 9, y), Offset(x + 9, y), paint);
-        canvas.drawLine(Offset(x, y - 9), Offset(x, y + 9), paint);
-      } else if (controller.style == 'botanical') {
-        final path = Path()..moveTo(x - 6, y + 6)..quadraticBezierTo(x, y - 6, x + 8, y - 9);
-        canvas.drawPath(path, paint);
-        canvas.drawOval(Rect.fromCenter(center: Offset(x - 3, y - 2), width: 8, height: 16), paint);
-      } else if (controller.style == 'retro') {
-        canvas.drawRect(Rect.fromCenter(center: Offset(x, y), width: pattern * .55, height: pattern * .55), paint);
-      } else if (controller.style == 'noir') {
-        canvas.drawLine(Offset(x - 8, y - 8), Offset(x + 8, y + 8), paint);
-      } else if (controller.background == 'sage') {
-        canvas.drawArc(Rect.fromCenter(center: Offset(x, y), width: pattern.toDouble(), height: pattern * .65), -.8, 2.4, false, paint);
-      } else if (controller.background == 'lavender') {
-        final r = 3 + i % 4;
-        canvas.drawCircle(Offset(x, y), r.toDouble(), paint);
-      } else if (controller.style == 'gothic') {
-        canvas.drawLine(Offset(x - 6, y), Offset(x + 6, y), paint);
-        canvas.drawLine(Offset(x, y - 6), Offset(x, y + 6), paint);
-      } else {
-        canvas.drawCircle(Offset(x, y), 2.4 + (i % 3), paint);
+      switch (controller.style) {
+        case 'celestial':
+          canvas.drawCircle(Offset(x, y), 3.5 + i % 4, paint);
+          canvas.drawLine(Offset(x - 9, y), Offset(x + 9, y), paint);
+          canvas.drawLine(Offset(x, y - 9), Offset(x, y + 9), paint);
+          if (i.isEven) canvas.drawCircle(Offset(x + 11, y - 7), 1.7, paint);
+          break;
+        case 'fantasy':
+          final path = Path()
+            ..moveTo(x, y - 8)
+            ..lineTo(x + 3.2, y - 2.2)
+            ..lineTo(x + 9, y)
+            ..lineTo(x + 3.2, y + 2.2)
+            ..lineTo(x, y + 8)
+            ..lineTo(x - 3.2, y + 2.2)
+            ..lineTo(x - 9, y)
+            ..lineTo(x - 3.2, y - 2.2)
+            ..close();
+          canvas.drawPath(path, paint);
+          break;
+        case 'botanical':
+          canvas.drawLine(Offset(x - 2, y + 8), Offset(x + 5, y - 8), paint);
+          canvas.drawOval(Rect.fromCenter(center: Offset(x - 2, y - 2), width: 7, height: 13), paint);
+          canvas.drawOval(Rect.fromCenter(center: Offset(x + 3, y + 3), width: 7, height: 13), paint);
+          break;
+        case 'cozy':
+        case 'cottagecore':
+          canvas.drawArc(Rect.fromCenter(center: Offset(x, y), width: pattern, height: pattern * .65), -.8, 2.5, false, paint);
+          canvas.drawCircle(Offset(x + 8, y - 5), 2.6, paint);
+          break;
+        case 'romance':
+        case 'sakura':
+          canvas.drawCircle(Offset(x, y - 3), 3.6, paint);
+          canvas.drawCircle(Offset(x - 4, y + 2), 3.6, paint);
+          canvas.drawCircle(Offset(x + 4, y + 2), 3.6, paint);
+          canvas.drawCircle(Offset(x, y + 5), 3.3, paint);
+          break;
+        case 'gothic':
+        case 'whimsigoth':
+          canvas.drawLine(Offset(x - 8, y), Offset(x + 8, y), paint);
+          canvas.drawLine(Offset(x, y - 8), Offset(x, y + 8), paint);
+          canvas.drawCircle(Offset(x, y), 3.4, paint);
+          break;
+        case 'dark_academia':
+        case 'parchment':
+          canvas.drawLine(Offset(x - 8, y - 5), Offset(x + 8, y + 5), paint);
+          canvas.drawLine(Offset(x - 8, y + 5), Offset(x + 8, y - 5), paint);
+          canvas.drawLine(Offset(x - 7, y + 9), Offset(x + 7, y + 9), paint);
+          break;
+        case 'ocean':
+          final wave = Path()
+            ..moveTo(x - 10, y)
+            ..quadraticBezierTo(x - 5, y - 7, x, y)
+            ..quadraticBezierTo(x + 5, y + 7, x + 10, y);
+          canvas.drawPath(wave, paint);
+          break;
+        case 'retro':
+          canvas.drawRect(Rect.fromCenter(center: Offset(x, y), width: 11, height: 11), paint);
+          canvas.drawCircle(Offset(x, y), 2.6, paint);
+          break;
+        case 'sunset':
+          canvas.drawArc(Rect.fromCenter(center: Offset(x, y + 4), width: 18, height: 18), math.pi, math.pi, false, paint);
+          for (var ray = 0; ray < 3; ray++) {
+            final dx = (ray - 1) * 5.0;
+            canvas.drawLine(Offset(x + dx, y - 8), Offset(x + dx, y - 12), paint);
+          }
+          break;
+        case 'noir':
+          canvas.drawLine(Offset(x - 9, y - 9), Offset(x + 9, y + 9), paint);
+          canvas.drawLine(Offset(x - 9, y + 9), Offset(x + 9, y - 9), paint);
+          break;
+        case 'minimal':
+          canvas.drawLine(Offset(x - 9, y), Offset(x + 9, y), paint);
+          break;
+        default:
+          canvas.drawCircle(Offset(x, y), 2.4 + (i % 3), paint);
       }
     }
   }
+
   @override
   bool shouldRepaint(covariant _AppDoodleBackground oldDelegate) => true;
 }
@@ -3148,7 +3214,7 @@ class CustomizationPage extends StatelessWidget {
         const SizedBox(height: 12),
         Wrap(spacing: 8, runSpacing: 8, children: [
           _ChoicePill(label: 'Cozy', selected: false, onTap: () => controller.applyPreset('cozy')),
-          _ChoicePill(label: 'Dark academia', selected: false, onTap: () => controller.applyPreset('darkAcademia')),
+          _ChoicePill(label: 'Dark academia', selected: false, onTap: () => controller.applyPreset('dark_academia')),
           _ChoicePill(label: 'Pastel', selected: false, onTap: () => controller.applyPreset('pastel')),
           _ChoicePill(label: 'Minimal', selected: false, onTap: () => controller.applyPreset('minimal')),
         ]),
@@ -3163,33 +3229,86 @@ class CustomizationPage extends StatelessWidget {
             Text('Toca una estética para aplicar su combinación de color, tipografía, fondo y tarjetas.', style: Theme.of(context).textTheme.bodySmall),
             const SizedBox(height: 14),
             LayoutBuilder(builder: (context, constraints) {
-              final columns = constraints.maxWidth < 440 ? 2 : constraints.maxWidth < 720 ? 3 : 4;
-              final gap = 10.0;
+              final columns = constraints.maxWidth < 430 ? 2 : constraints.maxWidth < 720 ? 3 : 4;
+              final gap = Responsive.narrow(context) ? 9.0 : 12.0;
               final itemWidth = (constraints.maxWidth - gap * (columns - 1)) / columns;
               final entries = const [
-                ['cozy','Cozy'], ['romance','Romántico'], ['fantasy','Fantasía'], ['gothic','Gótico'],
-                ['dark_academia','Dark academia'], ['cottagecore','Cottagecore'], ['whimsigoth','Whimsigoth'], ['minimal','Minimal'],
-                ['celestial','Celestial'], ['botanical','Botánico'], ['ocean','Ocean'], ['retro','Retro'], ['noir','Noir'], ['sunset','Sunset'], ['sakura','Sakura'], ['parchment','Pergamino'],
+                ['cozy','Cozy','Cálido · suave','warm'],
+                ['romance','Romántico','Dulce · soñador','dreamy'],
+                ['fantasy','Fantasía','Místico · etéreo','mystic'],
+                ['gothic','Gótico','Oscuro · dramático','moody'],
+                ['dark_academia','Dark academia','Editorial · clásico','moody'],
+                ['cottagecore','Cottagecore','Natural · acogedor','calm'],
+                ['whimsigoth','Whimsigoth','Místico · bohemio','mystic'],
+                ['minimal','Minimal','Limpio · funcional','calm'],
+                ['celestial','Celestial','Cósmico · soñador','mystic'],
+                ['botanical','Botánico','Verde · orgánico','airy'],
+                ['ocean','Ocean','Fresco · sereno','calm'],
+                ['retro','Retro','Analógico · nostálgico','bright'],
+                ['noir','Noir','Sobrio · cinematográfico','moody'],
+                ['sunset','Sunset','Cálido · vibrante','bright'],
+                ['sakura','Sakura','Rosado · delicado','dreamy'],
+                ['parchment','Pergamino','Clásico · antiguo','warm'],
               ];
+              final paletteByStyle = const {
+                'cozy': [Color(0xFFB76E5E), Color(0xFFD08B73)], 'romance': [Color(0xFFC77887), Color(0xFFB59BC9)],
+                'fantasy': [Color(0xFF756EA8), Color(0xFF8C70A9)], 'gothic': [Color(0xFF74506C), Color(0xFF6F667D)],
+                'dark_academia': [Color(0xFF517663), Color(0xFFB18A63)], 'cottagecore': [Color(0xFF71815B), Color(0xFF8AA79B)],
+                'whimsigoth': [Color(0xFF9A5C78), Color(0xFF8C70A9)], 'minimal': [Color(0xFF5D6B9A), Color(0xFF6F7A99)],
+                'celestial': [Color(0xFF425774), Color(0xFF8C70A9)], 'botanical': [Color(0xFF517663), Color(0xFF6D8773)],
+                'ocean': [Color(0xFF4F8190), Color(0xFF8AA79B)], 'retro': [Color(0xFFB18A63), Color(0xFFE2AE55)],
+                'noir': [Color(0xFF5D6B9A), Color(0xFF6F667D)], 'sunset': [Color(0xFFC46F62), Color(0xFFE2AE55)],
+                'sakura': [Color(0xFFC77887), Color(0xFFE2AE55)], 'parchment': [Color(0xFFC59B45), Color(0xFFD08B73)],
+              };
               return Wrap(spacing: gap, runSpacing: gap, children: entries.map((entry) {
                 final key = entry[0];
                 final label = entry[1];
+                final descriptor = entry[2];
+                final moodLabel = entry[3];
+                final active = controller.style == key;
+                final swatches = paletteByStyle[key] ?? const [Color(0xFFB76E5E), Color(0xFFD08B73)];
                 return SizedBox(
                   width: itemWidth,
-                  child: InkWell(
-                    borderRadius: BorderRadius.circular(18),
-                    onTap: () => controller.applyPreset(key),
-                    child: AnimatedContainer(
-                      duration: const Duration(milliseconds: 180),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(18),
-                        border: Border.all(color: controller.style == key ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.outlineVariant.withValues(alpha: .25), width: controller.style == key ? 2.2 : 1),
+                  child: Semantics(
+                    button: true,
+                    label: 'Aplicar estética $label',
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(20),
+                      onTap: () => unawaited(controller.applyPreset(key)),
+                      child: AnimatedContainer(
+                        duration: const Duration(milliseconds: 220),
+                        curve: Curves.easeOutCubic,
+                        decoration: BoxDecoration(
+                          color: active ? Theme.of(context).colorScheme.primary.withValues(alpha: .07) : Theme.of(context).colorScheme.surface,
+                          borderRadius: BorderRadius.circular(active ? 22 : 20),
+                          border: Border.all(
+                            color: active ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.outlineVariant.withValues(alpha: .35),
+                            width: active ? 2.3 : 1,
+                          ),
+                          boxShadow: active ? [BoxShadow(color: Theme.of(context).colorScheme.primary.withValues(alpha: .15), blurRadius: 18, offset: const Offset(0, 7))] : const [],
+                        ),
+                        clipBehavior: Clip.antiAlias,
+                        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                          Stack(children: [
+                            AspectRatio(aspectRatio: 1.36, child: Image.asset('assets/themes/$key.png', fit: BoxFit.cover, errorBuilder: (context, error, stackTrace) => Container(color: swatches[0].withValues(alpha: .18), alignment: Alignment.center, child: Icon(Icons.image_not_supported_outlined, color: swatches[0])))),
+                            if (active) Positioned(top: 9, right: 9, child: Container(padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5), decoration: BoxDecoration(color: Theme.of(context).colorScheme.primary, borderRadius: BorderRadius.circular(999)), child: const Text('ACTIVO', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w900, fontSize: 9, letterSpacing: .6)))),
+                          ]),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(11, 10, 11, 11),
+                            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                              Row(children: [
+                                Expanded(child: Text(label, maxLines: 1, overflow: TextOverflow.ellipsis, style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 13))),
+                                const SizedBox(width: 7),
+                                Row(children: [Container(width: 9, height: 9, decoration: BoxDecoration(color: swatches[0], shape: BoxShape.circle)), const SizedBox(width: 4), Container(width: 9, height: 9, decoration: BoxDecoration(color: swatches[1], shape: BoxShape.circle))]),
+                              ]),
+                              const SizedBox(height: 4),
+                              Text(descriptor, maxLines: 1, overflow: TextOverflow.ellipsis, style: Theme.of(context).textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w600)),
+                              const SizedBox(height: 5),
+                              Container(padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3), decoration: BoxDecoration(color: swatches[0].withValues(alpha: .10), borderRadius: BorderRadius.circular(999)), child: Text(moodLabel, style: TextStyle(fontSize: 9.5, fontWeight: FontWeight.w800, color: swatches[0]))),
+                            ]),
+                          ),
+                        ]),
                       ),
-                      clipBehavior: Clip.antiAlias,
-                      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                        AspectRatio(aspectRatio: 1.48, child: Image.asset('assets/themes/$key.png', fit: BoxFit.cover)),
-                        Padding(padding: const EdgeInsets.fromLTRB(10, 9, 10, 11), child: Text(label, maxLines: 1, overflow: TextOverflow.ellipsis, style: const TextStyle(fontWeight: FontWeight.w800))),
-                      ]),
                     ),
                   ),
                 );
